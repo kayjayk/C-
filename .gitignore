@@ -1,0 +1,10 @@
+.gitattributes
+.opendb
+.db
+.vcxproj
+.filters
+.user
+.suo
+.ipch
+.ilk
+.vs/Solution1/v16/Browse.VC.opendb
