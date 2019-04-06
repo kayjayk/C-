@@ -3,21 +3,19 @@
 
 using namespace std;
 bool visited[50];
-int min = 100;
+int minCount = 101;
 
 void dfs(string begin, string target, vector<string> words, int count) {
-	char c[begin.length];
-	c = begin;
 	if (begin == target) {
-		if (count < min) min = count;
+		if (count < minCount) minCount = count;
 		return;
 	}
 	for (int i = 0; i < words.size(); i++) {
-		char temp[begin.length];
-		temp = words[i];
+		string temp = words[i];
 		int tempCount = 0;
-		for (int j = 0; j < temp.length; j++) {
-			if (temp[j] != c[j]) {
+		int l = temp.length();
+		for (int j = 0; j < l; j++) {
+			if (temp[j] != begin[j]) {
 				tempCount++;
 			}
 		}
@@ -31,8 +29,8 @@ void dfs(string begin, string target, vector<string> words, int count) {
 
 int solution(string begin, string target, vector<string> words) {
 	int answer = 0;
-	N = begin.length;
 	dfs(begin, target, words, 0);
-	answer = min;
+	if (minCount > 100) minCount = 0;
+	answer = minCount;
 	return answer;
 }
